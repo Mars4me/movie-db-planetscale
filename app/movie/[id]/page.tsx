@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
     return (
         <div className="p-3 border rounded-lg">
-            <h1 className="mb-5 text-xl font-semibold">Your Opinion</h1>
+            <h1 className="mb-5 text-xl font-semibold">Leave comment</h1>
 
             <div>
                 <form action={pushCommentToDB}>
