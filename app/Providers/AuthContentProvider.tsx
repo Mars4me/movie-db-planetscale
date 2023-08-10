@@ -2,7 +2,13 @@ import { useContext, createContext, useState, useEffect } from 'react';
 import { signInWithPopup, signOut, onAuthStateChanged, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../lib/firebase';
 
-const AuthContext = createContext({});
+interface IAuthContext {
+    user: any;
+    googleSignIn: () => any;
+    logOut: () => any;
+}
+
+const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 export const AuthContextProvider = ({ children }: any) => {
     const [user, setUser] = useState(null);
