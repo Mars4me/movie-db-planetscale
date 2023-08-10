@@ -16,7 +16,7 @@ async function getData(id: string) {
     return data;
 }
 
-async function postData(formData: FormData) {
+async function pushCommentToDB(formData: FormData) {
     'use server';
 
     await db.comment.create({
@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             <h1 className="mb-5 text-xl font-semibold">Your Opinion</h1>
 
             <div>
-                <form action={postData}>
+                <form action={pushCommentToDB}>
                     <textarea
                         name="comment"
                         className="w-full p-2 border border-teal-500 rounded-lg"
