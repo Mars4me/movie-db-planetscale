@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { UserAuth } from '../Providers/AuthContentProvider';
@@ -31,8 +33,14 @@ const Navbar = () => {
     }, [user]);
 
     return (
-        <div className="flex items-center justify-between w-full h-20 p-2 border-b-2">
-            <ul className="flex">
+        <nav className="flex items-center justify-between w-full h-20 p-2 border-b-2">
+            <ul className="flex items-center">
+                <li className="p-2 cursor-pointer">
+                    <Link prefetch href="/" className="text-2xl font-semibold">
+                        Movie <span className="text-teal-500">DB</span>
+                    </Link>
+                </li>
+
                 <li className="p-2 cursor-pointer">
                     <Link href="/">Home</Link>
                 </li>
@@ -48,7 +56,7 @@ const Navbar = () => {
             </ul>
 
             {loading ? null : !user ? (
-                <ul className="flex">
+                <ul className="flex items-center">
                     <li onClick={handleSignIn} className="p-2 cursor-pointer">
                         Login
                     </li>
@@ -64,7 +72,7 @@ const Navbar = () => {
                     </p>
                 </div>
             )}
-        </div>
+        </nav>
     );
 };
 
