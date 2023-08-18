@@ -57,19 +57,28 @@ const Navbar = () => {
 
             {loading ? null : !user ? (
                 <ul className="flex items-center">
-                    <li onClick={handleSignIn} className="p-2 cursor-pointer">
+                    <button
+                        onClick={handleSignIn}
+                        className="px-4 py-2 mx-2 font-semibold text-gray-800 bg-white border border-gray-400 rounded shadow hover:bg-gray-100"
+                    >
                         Login
-                    </li>
-                    <li onClick={handleSignIn} className="p-2 cursor-pointer">
+                    </button>
+                    <button
+                        onClick={handleSignIn}
+                        className="px-4 py-2 font-semibold text-gray-800 bg-white border border-gray-400 rounded shadow hover:bg-gray-100"
+                    >
                         Sign up
-                    </li>
+                    </button>
                 </ul>
             ) : (
                 <div>
                     <p>Welcome, {user.displayName}</p>
-                    <p className="cursor-pointer" onClick={handleSignOut}>
+                    <button
+                        className="px-4 py-2 font-semibold text-gray-800 bg-white border border-gray-400 rounded shadow hover:bg-gray-100"
+                        onClick={handleSignOut}
+                    >
                         Sign out
-                    </p>
+                    </button>
                 </div>
             )}
         </nav>
